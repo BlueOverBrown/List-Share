@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import '../widgets/list_builder.dart';
+import '../models/custom_list.dart';
 
-class ListScreen extends StatefulWidget {
-  final String selectedListTitle;
+
+class ListScreen extends StatelessWidget {
+  final CustomList selectedList;
   static const String navId = 'list_screen';
-  ListScreen({Key key, this.selectedListTitle});
+  ListScreen({this.selectedList});
 
-  @override
-  _ListScreenState createState() => _ListScreenState();
-}
-
-class _ListScreenState extends State<ListScreen> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +16,7 @@ class _ListScreenState extends State<ListScreen> {
           Text('List Home'),
           Expanded(
             child: ListBuilder(
-              widget.selectedListTitle,
+              selectedList,
             ),
           ),
         ],
